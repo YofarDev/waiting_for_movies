@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Current & Upcoming Movies by Director</title>
+    
+<style>
+    body { font-family: sans-serif; margin: 20px; background-color: #f4f4f4; }
+    h1 { text-align: center; color: #333; }
+    #filters { margin-bottom: 20px; text-align: center; }
+    #filters button {
+        padding: 10px 15px; margin: 5px; cursor: pointer;
+        border: 1px solid #ccc; background-color: #eee; border-radius: 4px;
+    }
+    #filters button.active {
+        background-color: #007bff; color: white; border-color: #0056b3;
+    }
+    #movie-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 25px;
+    }
+    .movie-card {
+        border: 1px solid #ddd; border-radius: 8px; padding: 15px;
+        background-color: #fff; box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+        display: flex; flex-direction: column;
+        overflow: hidden; transition: transform 0.2s ease-in-out;
+    }
+    .movie-card:hover { transform: scale(1.02); }
+    .movie-card img {
+        max-width: 100%; height: auto; border-radius: 4px; margin-bottom: 10px;
+        align-self: center; background-color: #eee; min-height: 200px;
+        object-fit: cover; aspect-ratio: 2/3;
+        display: block; margin-left: auto; margin-right: auto;
+        max-width: 200px;
+    }
+    .movie-card img[src$="default_poster.png"] { background-color: #ddd; }
+    .movie-card h2 { font-size: 1.25em; margin: 0 0 5px 0; color: #333; line-height: 1.2; }
+    .movie-card .director { font-size: 0.9em; font-style: italic; color: #666; margin-bottom: 8px; }
+    .movie-card .year { font-weight: bold; color: #555; margin-bottom: 8px; font-size: 0.95em; }
+    .movie-card .actors { font-size: 0.85em; color: #777; margin-bottom: 10px; line-height: 1.3; }
+    .movie-card .actors strong { color: #555; }
+    .movie-card .synopsis { font-size: 0.9em; color: #444; flex-grow: 1; overflow-y: auto; max-height: 120px; line-height: 1.4; }
+    .hidden { display: none !important; }
+    #no-movies-message { text-align: center; font-size: 1.1em; color: #888; margin-top: 30px; display: none; grid-column: 1 / -1; }
+</style>
+
+</head>
+<body>
+    <h1>Current & Upcoming Movies by Director</h1>
+<div id="filters">
+    <button class="active" onclick="filterMovies('All')">Show All</button>
+    <button onclick="filterMovies('Bong Joon-ho')">Bong Joon-ho</button>
+    <button onclick="filterMovies('Christopher Nolan')">Christopher Nolan</button>
+    <button onclick="filterMovies('Denis Villeneuve')">Denis Villeneuve</button>
+    <button onclick="filterMovies('Greta Gerwig')">Greta Gerwig</button>
+    <button onclick="filterMovies('Jordan Peele')">Jordan Peele</button>
+    <button onclick="filterMovies('Quentin Tarantino')">Quentin Tarantino</button>
+    <button onclick="filterMovies('Wes Anderson')">Wes Anderson</button>
+</div>
+<div id="movie-container">
+  <div class="movie-card" data-director="Bong Joon-ho">
+    <img src="https://image.tmdb.org/t/p/w342/edKpE9B5qN3e559OuMCLZdW1iBZ.jpg" alt="Mickey 17 Poster">
+    <h2>Mickey 17</h2>
+    <p class="director">Directed by: Bong Joon-ho</p>
+    <p class="year">Year: 2025</p>
+    <p class="actors"><strong>Starring:</strong> Robert Pattinson, Naomi Ackie, Steven Yeun, Mark Ruffalo, Toni Collette</p>
+    <p class="synopsis">Unlikely hero Mickey Barnes finds himself in the extraordinary circumstance of working for an employer who demands the ultimate commitment to the job… to die, for a living.</p>
+  </div>
+  <div class="movie-card" data-director="Wes Anderson">
+    <img src="https://image.tmdb.org/t/p/w342/unOHzaVVAgWEVlk8elRtzX71wbT.jpg" alt="The Phoenician Scheme Poster">
+    <h2>The Phoenician Scheme</h2>
+    <p class="director">Directed by: Wes Anderson</p>
+    <p class="year">Year: 2025</p>
+    <p class="actors"><strong>Starring:</strong> Benicio del Toro, Mia Threapleton, Michael Cera, Bryan Cranston, Scarlett Johansson</p>
+    <p class="synopsis">Dark tale of espionage following a strained father-daughter relationship within a family business.</p>
+  </div>
+  <div class="movie-card" data-director="Christopher Nolan">
+    <img src="https://image.tmdb.org/t/p/w342/z5DhnCi8vSltpVqVZMSod4nFyYw.jpg" alt="The Odyssey Poster">
+    <h2>The Odyssey</h2>
+    <p class="director">Directed by: Christopher Nolan</p>
+    <p class="year">Year: 2026</p>
+    <p class="actors"><strong>Starring:</strong> Matt Damon, Tom Holland, Zendaya, Anne Hathaway, Lupita Nyong&#x27;o</p>
+    <p class="synopsis">An adaptation of Homer&#x27;s epic poem of the same name, follow Odysseus in his perilous journey home after the Trojan War, showcasing his encounters with Polyphemus, the Sirens, Circe, and finishing with his reunion with his wife, Penelope.</p>
+  </div>
+  <div class="movie-card" data-director="Jordan Peele">
+    <img src="default_poster.png" alt="Untitled Jordan Peele Film Poster">
+    <h2>Untitled Jordan Peele Film</h2>
+    <p class="director">Directed by: Jordan Peele</p>
+    <p class="year">Year: 2026</p>
+        <p class="synopsis">Untitled fourth film directed by Jordan Peele, cast and plot kept under wraps.</p>
+  </div>
+  <div class="movie-card" data-director="Greta Gerwig">
+    <img src="https://image.tmdb.org/t/p/w342/ndamQtGvHiYEhc5QNohpAVmxmI3.jpg" alt="Untitled Chronicles of Narnia Film #1 Poster">
+    <h2>Untitled Chronicles of Narnia Film #1</h2>
+    <p class="director">Directed by: Greta Gerwig</p>
+    <p class="year">Year: 2026</p>
+    <p class="actors"><strong>Starring:</strong> Charli xcx, Meryl Streep, Daniel Craig</p>
+    <p class="synopsis">The first film of Greta Gerwig’s adaptation of C.S. Lewis’s The Chronicles of Narnia.</p>
+  </div>
+  <div class="movie-card" data-director="Christopher Nolan">
+    <img src="default_poster.png" alt="Die Early Poster">
+    <h2>Die Early</h2>
+    <p class="director">Directed by: Christopher Nolan</p>
+    <p class="year">Year: TBA</p>
+    <p class="actors"><strong>Starring:</strong> Robert Downey Jr.</p>
+    <p class="synopsis">Described as a “mind-bending thriller” with a smaller scale, the film is expected to begin production in early 2026.</p>
+  </div>
+  <div class="movie-card" data-director="Denis Villeneuve">
+    <img src="https://image.tmdb.org/t/p/w342/pnTG39H4uDGdx9Jn6nfwWXKgqgE.jpg" alt="Dune: Part Three Poster">
+    <h2>Dune: Part Three</h2>
+    <p class="director">Directed by: Denis Villeneuve</p>
+    <p class="year">Year: TBA</p>
+    <p class="actors"><strong>Starring:</strong> Timothée Chalamet, Florence Pugh, Anya Taylor-Joy, Zendaya, Jason Momoa</p>
+    <p class="synopsis">Paul Atreides, now Emperor Muad’Dib, navigates his immense power while battling political foes and a conspiracy within his circle. As House Atreides faces collapse, the real danger emerges for Paul’s lover, Chani, and their unborn heir.</p>
+  </div>
+  <div class="movie-card" data-director="Denis Villeneuve">
+    <img src="default_poster.png" alt="Cleopatra Poster">
+    <h2>Cleopatra</h2>
+    <p class="director">Directed by: Denis Villeneuve</p>
+    <p class="year">Year: TBA</p>
+        <p class="synopsis">Planned adaptation of Cleopatra: A Life by Stacy Schiff.</p>
+  </div>
+  <div class="movie-card" data-director="Denis Villeneuve">
+    <img src="https://image.tmdb.org/t/p/w342/3qlAMD0dVvalYPubvEUNRkV6y7s.jpg" alt="Rendezvous with Rama Poster">
+    <h2>Rendezvous with Rama</h2>
+    <p class="director">Directed by: Denis Villeneuve</p>
+    <p class="year">Year: TBA</p>
+        <p class="synopsis">In the 2130s, a team of astronauts is tasked with intercepting a mysterious 50-by-20-kilometre cylindrical alien starship that enters the solar system.</p>
+  </div>
+  <div class="movie-card" data-director="Denis Villeneuve">
+    <img src="default_poster.png" alt="Nuclear War: A Scenario Poster">
+    <h2>Nuclear War: A Scenario</h2>
+    <p class="director">Directed by: Denis Villeneuve</p>
+    <p class="year">Year: TBA</p>
+        <p class="synopsis">Explores a ticking-clock scenario about what would happen in the event of a nuclear war, based on dozens of exclusive new interviews with military and civilian experts who built the weapons and have been privy to the response plans and have been responsible for those decisions should they need to be made.</p>
+  </div>
+  <div class="movie-card" data-director="Greta Gerwig">
+    <img src="https://image.tmdb.org/t/p/w342/ndamQtGvHiYEhc5QNohpAVmxmI3.jpg" alt="Untitled Chronicles of Narnia Film #2 Poster">
+    <h2>Untitled Chronicles of Narnia Film #2</h2>
+    <p class="director">Directed by: Greta Gerwig</p>
+    <p class="year">Year: TBA</p>
+        <p class="synopsis">The first film of Greta Gerwig’s adaptation of C.S. Lewis’s The Chronicles of Narnia.</p>
+  </div>
+  <div class="movie-card" data-director="Quentin Tarantino">
+    <img src="default_poster.png" alt="Untitled Quentin Tarantino Project Poster">
+    <h2>Untitled Quentin Tarantino Project</h2>
+    <p class="director">Directed by: Quentin Tarantino</p>
+    <p class="year">Year: TBA</p>
+    <p class="actors"><strong>Starring:</strong> Brad Pitt</p>
+    <p class="synopsis">Plot TBA.</p>
+  </div>
+  <div class="movie-card" data-director="Bong Joon-ho">
+    <img src="https://image.tmdb.org/t/p/w342/bRrRysb0INIRmB8gSXkAKqf8O9r.jpg" alt="The Valley Poster">
+    <h2>The Valley</h2>
+    <p class="director">Directed by: Bong Joon-ho</p>
+    <p class="year">Year: TBA</p>
+    <p class="actors"><strong>Starring:</strong> Werner Herzog</p>
+    <p class="synopsis">The story will reportedly follow an invertebrate deep-sea fish who believes he’s suffering from spinal disk herniation.</p>
+  </div>
+  <div class="movie-card" data-director="Bong Joon-ho">
+    <img src="default_poster.png" alt="Untitled Bong Joon Ho Horror Action Film Poster">
+    <h2>Untitled Bong Joon Ho Horror Action Film</h2>
+    <p class="director">Directed by: Bong Joon-ho</p>
+    <p class="year">Year: TBA</p>
+        <p class="synopsis">Plot TBA.</p>
+  </div>
+<p id="no-movies-message" style="display: none;"></p>
+</div>
+
+    
+<script>
+    // JavaScript for filtering remains the same
+    function filterMovies(directorName) {
+        const cards = document.querySelectorAll('.movie-card');
+        const buttons = document.querySelectorAll('#filters button');
+        const noMoviesMsg = document.getElementById('no-movies-message');
+        let visibleCount = 0;
+
+        buttons.forEach(button => {
+            button.classList.toggle('active', button.textContent === directorName || (directorName === 'All' && button.textContent === 'Show All'));
+        });
+
+        cards.forEach(card => {
+            const cardDirector = card.getAttribute('data-director');
+            const isVisible = directorName === 'All' || cardDirector === directorName;
+            card.classList.toggle('hidden', !isVisible);
+            if (isVisible) visibleCount++;
+        });
+
+        const msgElement = document.getElementById('no-movies-message');
+        msgElement.style.display = visibleCount === 0 ? 'block' : 'none';
+        if (visibleCount === 0) {
+            if (directorName === 'All') {
+                 msgElement.textContent = 'No current or upcoming movies were found for any director.';
+            } else {
+                 msgElement.textContent = `No current or upcoming movies found for ${directorName}.`;
+            }
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+         const firstButton = document.querySelector('#filters button[onclick*="All"]');
+         if (firstButton) firstButton.classList.add('active');
+         if (!document.querySelector('.movie-card')) {
+             const msgElement = document.getElementById('no-movies-message');
+             msgElement.textContent = 'No current or upcoming movies were found for any specified directors.';
+             msgElement.style.display = 'block';
+         }
+    });
+</script>
+
+</body>
+</html>
