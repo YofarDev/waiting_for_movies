@@ -51,13 +51,21 @@
     <h1>Current & Upcoming Movies by Director</h1>
 <div id="filters">
     <button class="active" onclick="filterMovies('All')">Show All</button>
+    <button onclick="filterMovies('Ari Aster')">Ari Aster</button>
     <button onclick="filterMovies('Bong Joon-ho')">Bong Joon-ho</button>
     <button onclick="filterMovies('Christopher Nolan')">Christopher Nolan</button>
+    <button onclick="filterMovies('Damien Chazelle')">Damien Chazelle</button>
     <button onclick="filterMovies('Denis Villeneuve')">Denis Villeneuve</button>
     <button onclick="filterMovies('Greta Gerwig')">Greta Gerwig</button>
     <button onclick="filterMovies('Jordan Peele')">Jordan Peele</button>
+    <button onclick="filterMovies('Julia Ducournau')">Julia Ducournau</button>
+    <button onclick="filterMovies('M. Night Shyamalan')">M. Night Shyamalan</button>
+    <button onclick="filterMovies('Martin McDonagh')">Martin McDonagh</button>
+    <button onclick="filterMovies('Martin Scorsese')">Martin Scorsese</button>
+    <button onclick="filterMovies('Nathan Ambrosioni')">Nathan Ambrosioni</button>
     <button onclick="filterMovies('Quentin Tarantino')">Quentin Tarantino</button>
     <button onclick="filterMovies('Wes Anderson')">Wes Anderson</button>
+    <button onclick="filterMovies('Yorgos Lanthimos')">Yorgos Lanthimos</button>
 </div>
 <div id="movie-container">
   <div class="movie-card" data-director="Bong Joon-ho">
@@ -75,6 +83,14 @@
     <p class="year">Year: 2025</p>
     <p class="actors"><strong>Starring:</strong> Benicio del Toro, Mia Threapleton, Michael Cera, Bryan Cranston, Scarlett Johansson</p>
     <p class="synopsis">Dark tale of espionage following a strained father-daughter relationship within a family business.</p>
+  </div>
+  <div class="movie-card" data-director="Yorgos Lanthimos">
+    <img src="https://image.tmdb.org/t/p/w342/lDEtmP1rxAhcDRtFK0Zp8xDZgaq.jpg" alt="Bugonia Poster">
+    <h2>Bugonia</h2>
+    <p class="director">Directed by: Yorgos Lanthimos</p>
+    <p class="year">Year: 2025</p>
+    <p class="actors"><strong>Starring:</strong> Jesse Plemons, Emma Stone, Alicia Silverstone, Stavros Halkias, Ash Smith</p>
+    <p class="synopsis">Teddy, a paranoid and bereft young man, is a keen beekeeper. He believes that aliens from Andromeda have set about destroying the natural world around him. Alongside his dutiful cousin Don, they kidnap a powerful pharmaceutical executive, Michelle, to prevent total disaster.</p>
   </div>
   <div class="movie-card" data-director="Christopher Nolan">
     <img src="https://image.tmdb.org/t/p/w342/z5DhnCi8vSltpVqVZMSod4nFyYw.jpg" alt="The Odyssey Poster">
@@ -165,6 +181,122 @@
     <p class="director">Directed by: Bong Joon-ho</p>
     <p class="year">Year: TBA</p>
         <p class="synopsis">Plot TBA.</p>
+  </div>
+  <div class="movie-card" data-director="Nathan Ambrosioni">
+    <img src="default_poster.png" alt="Les enfants vont bien Poster">
+    <h2>Les enfants vont bien</h2>
+    <p class="director">Directed by: Nathan Ambrosioni</p>
+    <p class="year">Year: TBA</p>
+    <p class="actors"><strong>Starring:</strong> Camille Cottin, Juliette Armanet, Monia Chokri, Manoâ Varvat, Nina Birman</p>
+    <p class="synopsis"></p>
+  </div>
+  <div class="movie-card" data-director="Julia Ducournau">
+    <img src="https://image.tmdb.org/t/p/w342/9HqLip7NcQZgrlh5mbZO8JRDCCb.jpg" alt="Alpha Poster">
+    <h2>Alpha</h2>
+    <p class="director">Directed by: Julia Ducournau</p>
+    <p class="year">Year: TBA</p>
+    <p class="actors"><strong>Starring:</strong> Emma Mackey, Golshifteh Farahani, Tahar Rahim, Finnegan Oldfield, Jean-Charles Clichet</p>
+    <p class="synopsis">In the late 1980s, a teenager starts getting rejected by her classmates because of a rumor spreading that she’s been infected with a new disease.</p>
+  </div>
+  <div class="movie-card" data-director="Julia Ducournau">
+    <img src="https://image.tmdb.org/t/p/w342/sOmS7EMikR5Vg3S9s0SK0igKiWG.jpg" alt="Untitled Julia Ducournau &amp; A24 Project Poster">
+    <h2>Untitled Julia Ducournau &amp; A24 Project</h2>
+    <p class="director">Directed by: Julia Ducournau</p>
+    <p class="year">Year: TBA</p>
+        <p class="synopsis">An announced collaboration between celebrated director Julia Ducournau and production house A24.</p>
+  </div>
+  <div class="movie-card" data-director="Martin Scorsese">
+    <img src="https://image.tmdb.org/t/p/w342/lNs92sQhj5hIYDXbMORcx0UHIkB.jpg" alt="Untitled Grateful Dead Project Poster">
+    <h2>Untitled Grateful Dead Project</h2>
+    <p class="director">Directed by: Martin Scorsese</p>
+    <p class="year">Year: TBA</p>
+    <p class="actors"><strong>Starring:</strong> Jonah Hill</p>
+    <p class="synopsis">A biopic about the famous rock band. The still-untitled film is expected to chronicle the band’s formation in the Bay Area as the ’60s psychedelic counterculture movement started to take off.</p>
+  </div>
+  <div class="movie-card" data-director="Martin Scorsese">
+    <img src="default_poster.png" alt="Shipwrecks of Sicily Poster">
+    <h2>Shipwrecks of Sicily</h2>
+    <p class="director">Directed by: Martin Scorsese</p>
+    <p class="year">Year: TBA</p>
+        <p class="synopsis">Martin Scorsese&#x27;s documentary about ancient shipwrecks.</p>
+  </div>
+  <div class="movie-card" data-director="Martin Scorsese">
+    <img src="default_poster.png" alt="Life Is a Carnival: A Musical Celebration of Robbie Robertson Poster">
+    <h2>Life Is a Carnival: A Musical Celebration of Robbie Robertson</h2>
+    <p class="director">Directed by: Martin Scorsese</p>
+    <p class="year">Year: TBA</p>
+    <p class="actors"><strong>Starring:</strong> Robbie Robertson, Elvis Costello, Trey Anastasio, Lucinda Williams, Daniel Lanois</p>
+    <p class="synopsis">Robbie Robertson. Life Is a Carnival: A Musical Celebration of Robbie Robertson will take place on Thursday, October 17, 2024, at the Kia Forum, in Los Angeles, CA, featuring once-in-a-lifetime performances with an incredible lineup of superstar artists, including Trey Anastasio, Ryan Bingham, Mike Campbell, Eric Church, Eric Clapton, Elvis Costello, Warren Haynes, Bruce Hornsby, Jim James, Jamey Johnson, Noah Kahan, Daniel Lanois, Taj Mahal, Van Morrison, Margo Price, Robert Randolph, Nathaniel Rateliff, Allison Russell, Mavis Staples, Benmont Tench, Don Was, Bobby Weir, and Lucinda Williams.</p>
+  </div>
+  <div class="movie-card" data-director="Martin Scorsese">
+    <img src="default_poster.png" alt="Home Poster">
+    <h2>Home</h2>
+    <p class="director">Directed by: Martin Scorsese</p>
+    <p class="year">Year: TBA</p>
+    <p class="actors"><strong>Starring:</strong> Leonardo DiCaprio</p>
+    <p class="synopsis">Adaptation of Marilynne Robinsons novel. Plot TBA.</p>
+  </div>
+  <div class="movie-card" data-director="Martin Scorsese">
+    <img src="default_poster.png" alt="Devil in the White City Poster">
+    <h2>Devil in the White City</h2>
+    <p class="director">Directed by: Martin Scorsese</p>
+    <p class="year">Year: TBA</p>
+    <p class="actors"><strong>Starring:</strong> Leonardo DiCaprio</p>
+    <p class="synopsis">Dr. HH Holmes, a cunning serial killer, is believed to have murdered anywhere from 27 to 200 people at a time when the city of Chicago was enthralled with hosting the World&#x27;s Columbian Exposition of 1893.</p>
+  </div>
+  <div class="movie-card" data-director="Martin Scorsese">
+    <img src="default_poster.png" alt="Untitled Martin Scorsese Drama Poster">
+    <h2>Untitled Martin Scorsese Drama</h2>
+    <p class="director">Directed by: Martin Scorsese</p>
+    <p class="year">Year: TBA</p>
+    <p class="actors"><strong>Starring:</strong> Dwayne Johnson, Leonardo DiCaprio, Emily Blunt</p>
+    <p class="synopsis">Based on the untold true story of a man who fought to preserve his homeland through a ruthless quest for absolute power — igniting the last great American mob saga, where the war for cultural survival takes place in the unlikeliest of places: paradise.</p>
+  </div>
+  <div class="movie-card" data-director="Damien Chazelle">
+    <img src="default_poster.png" alt="Evel Knievel on Tour Poster">
+    <h2>Evel Knievel on Tour</h2>
+    <p class="director">Directed by: Damien Chazelle</p>
+    <p class="year">Year: TBA</p>
+    <p class="actors"><strong>Starring:</strong> Leonardo DiCaprio, Adrien Brody</p>
+    <p class="synopsis">Biopic about American stunt performer and entertainer Evel Knievel, best known for his motorcycle jumps (and bad temper). The story is set in a single year, 1974, and tackles Knievel’s ambitious planning to jump across Idaho’s Snake River on his motorcycle.</p>
+  </div>
+  <div class="movie-card" data-director="Yorgos Lanthimos">
+    <img src="https://image.tmdb.org/t/p/w342/g6ApiBRAM0XMPMANd19K4FViMQg.jpg" alt="The Hawkline Monster Poster">
+    <h2>The Hawkline Monster</h2>
+    <p class="director">Directed by: Yorgos Lanthimos</p>
+    <p class="year">Year: TBA</p>
+        <p class="synopsis">Two unlikely hero gunslingers are hired by a 15-year-old girl named Magic Child to kill a monster living in the ice caves under the basement of a house inhabited by a young woman named Miss Hawkline, only for there to be more to the girl, the owner and the house than meets the eye.</p>
+  </div>
+  <div class="movie-card" data-director="Yorgos Lanthimos">
+    <img src="default_poster.png" alt="Fatale Poster">
+    <h2>Fatale</h2>
+    <p class="director">Directed by: Yorgos Lanthimos</p>
+    <p class="year">Year: TBA</p>
+        <p class="synopsis">Aimée, a coldhearted grifter and modern capitalism&#x27;s soul, is a professional killer who aims to uncover old grudges and engineer new opportunities in a backwater burg. However, her passion leads her to become the avenging angel of her own nihilism, destroying a society of destroyers.</p>
+  </div>
+  <div class="movie-card" data-director="Ari Aster">
+    <img src="https://image.tmdb.org/t/p/w342/oAZpCZI8k2yT58o8miopeH6lvia.jpg" alt="Eddington Poster">
+    <h2>Eddington</h2>
+    <p class="director">Directed by: Ari Aster</p>
+    <p class="year">Year: TBA</p>
+    <p class="actors"><strong>Starring:</strong> Joaquin Phoenix, Pedro Pascal, Emma Stone, Austin Butler, Micheal Ward</p>
+    <p class="synopsis">Sparks fly when sheriff Joe Cross decides to run for mayor of Eddington after he refuses to wear a face mask at the local grocery store. Incumbent mayor, Ted Garcia isn’t happy as he was led to believe he’d be running unopposed.</p>
+  </div>
+  <div class="movie-card" data-director="Martin McDonagh">
+    <img src="https://image.tmdb.org/t/p/w342/7UEXzA8HfwV9m7VzmikPVzDIhtc.jpg" alt="Wild Horse Nine Poster">
+    <h2>Wild Horse Nine</h2>
+    <p class="director">Directed by: Martin McDonagh</p>
+    <p class="year">Year: TBA</p>
+    <p class="actors"><strong>Starring:</strong> Sam Rockwell, Steve Buscemi, John Malkovich, Parker Posey, Tom Waits</p>
+    <p class="synopsis">Set on an island, but not in Ireland. Plot TBA.</p>
+  </div>
+  <div class="movie-card" data-director="M. Night Shyamalan">
+    <img src="default_poster.png" alt="Remain Poster">
+    <h2>Remain</h2>
+    <p class="director">Directed by: M. Night Shyamalan</p>
+    <p class="year">Year: TBA</p>
+    <p class="actors"><strong>Starring:</strong> Jake Gyllenhaal, Phoebe Dynevor</p>
+    <p class="synopsis">When New York architect Tate Donovan arrives in Cape Cod to design his best friend’s summer home, he is hoping to make a fresh start. Recently discharged from an upscale psychiatric facility where he was treated for acute depression, he is still wrestling with the pain of losing his beloved sister. Her deathbed revelation—that she can see spirits who are still tethered to the living world, a gift that runs in their family—sits uneasily with Tate, who struggles to believe in more than what reason can explain. But when he takes up residence at a historic bed-and-breakfast on the Cape, he encounters a beautiful young woman named Wren who will challenge every assumption he has about his logical and controlled world.</p>
   </div>
 <p id="no-movies-message" style="display: none;"></p>
 </div>
